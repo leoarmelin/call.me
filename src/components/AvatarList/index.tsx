@@ -10,16 +10,17 @@ export const AvatarList = ({
   currentAvatar,
   toggleAvatar,
 }: IAvatarListProps) => {
-  console.log(currentAvatar);
-
   return (
     <Container>
       <ScrollList>
         {avatarNames.map((avatarName, index) => (
-          <AvatarButton key={index} onClick={() => toggleAvatar(avatarName)}>
+          <AvatarButton
+            key={index}
+            onClick={() => toggleAvatar(avatarName)}
+            $isSelected={currentAvatar === avatarName}
+          >
             <AvatarIcon
               src={require(`../../assets/${avatarName}.svg`).default}
-              $isSelected={currentAvatar === avatarName}
             />
           </AvatarButton>
         ))}

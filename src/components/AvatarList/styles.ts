@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-interface IAvatarIcon {
+interface IAvatarButton {
   $isSelected: boolean;
 }
 
@@ -23,7 +23,7 @@ export const ScrollList = styled.div`
   height: fit-content;
   width: 100%;
 
-  padding-right: 0.5rem;
+  padding-right: 0.75rem;
 
   overflow-y: auto;
 
@@ -41,26 +41,26 @@ export const ScrollList = styled.div`
   }
 `;
 
-export const AvatarButton = styled.button`
-  height: fit-content;
-  width: fit-content;
+export const AvatarButton = styled.button<IAvatarButton>`
+  position: relative;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  height: 10.5rem;
+  width: 10.5rem;
 
   border: none;
   border-radius: 50%;
 
-  background-color: transparent;
-`;
+  background-color: ${({ $isSelected, theme }) =>
+    $isSelected ? theme.colors.primary : "transparent"};
 
-export const AvatarIcon = styled.img<IAvatarIcon>`
-  position: relative;
-
-  height: 10rem;
-  width: 10rem;
-
-  &::after {
-    content: "aoba";
+  /* &::after {
+    content: "";
     display: ${({ $isSelected }) => ($isSelected ? "block" : "none")};
-    // position: absolute;
+    position: absolute;
 
     left: 0;
     top: 0;
@@ -72,6 +72,13 @@ export const AvatarIcon = styled.img<IAvatarIcon>`
 
     background-color: ${({ theme }) => theme.colors.primary};
 
-    // transform: translate(50%, 50%);
-  }
+    z-index: 0;
+  } */
+`;
+
+export const AvatarIcon = styled.img`
+  height: 10rem;
+  width: 10rem;
+
+  z-index: 1;
 `;
