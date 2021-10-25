@@ -1,16 +1,20 @@
 import { Container, IconImage, PencilWrapper, IconPencil } from "./styles";
 
-import avatarIcon from "../../assets/icon-1.svg";
 import pencilIcon from "../../assets/icon-pencil.svg";
+import { useUser } from "../../hooks/useUser";
 
 interface IAvatarProps {
   openAvatarModal: () => void;
 }
 
 export const Avatar = ({ openAvatarModal }: IAvatarProps) => {
+  const { avatarSrc } = useUser();
+
   return (
     <Container>
-      <IconImage src={avatarIcon} />
+      <IconImage
+        src={require(`../../assets/${avatarSrc ?? "icon-1"}.svg`).default}
+      />
 
       <PencilWrapper onClick={openAvatarModal}>
         <IconPencil src={pencilIcon} />
