@@ -9,11 +9,15 @@ export const AvatarWrapper = () => {
     setIsAvatarModalOpen(true);
   }, []);
 
+  const closeAvatarModal = useCallback(() => {
+    setIsAvatarModalOpen(false);
+  }, []);
+
   return (
     <>
       <Avatar openAvatarModal={openAvatarModal} />
 
-      {isAvatarModalOpen && <AvatarModal />}
+      {isAvatarModalOpen && <AvatarModal closeAvatarModal={closeAvatarModal} />}
     </>
   );
 };
