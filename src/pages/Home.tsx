@@ -1,8 +1,8 @@
-import { Container, Title } from "../styles/Home";
+import { Container, Title, Form } from "../styles/Home";
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
 import { AvatarWrapper } from "../components/AvatarWrapper";
-import { useCallback, useEffect, useState } from "react";
+import { FormEvent, useCallback, useEffect, useState } from "react";
 import { useUser } from "../hooks/useUser";
 
 function Home() {
@@ -10,9 +10,14 @@ function Home() {
 
   const [currentUsername, setCurrentUsername] = useState("");
 
-  const handleJoin = useCallback(() => {
-    setUsername(!!currentUsername.length ? currentUsername : "Guest");
-  }, [currentUsername, setUsername]);
+  const onSubmitForm = useCallback(
+    (e: FormEvent) => {
+      e.preventDefault();
+
+      setUsername(!!currentUsername.length ? currentUsername : "Guest");
+    },
+    [currentUsername, setUsername]
+  );
 
   // The code below can be deleted
   useEffect(() => {
@@ -21,17 +26,19 @@ function Home() {
 
   return (
     <Container>
-      <Title>Escolha um nome e um ícone</Title>
+      <Form onSubmit={onSubmitForm}>
+        <Title>Escolha um nome e um ícone</Title>
 
-      <AvatarWrapper />
+        <AvatarWrapper />
 
-      <Input
-        onChange={setCurrentUsername}
-        value={currentUsername}
-        placeholder="Insira seu nome"
-      />
+        <Input
+          onChange={setCurrentUsername}
+          value={currentUsername}
+          placeholder="Insira seu nome"
+        />
 
-      <Button label="Entrar" onClick={handleJoin} />
+        <Button type="submit" label="Entrar" />
+      </Form>
     </Container>
   );
 }

@@ -5,6 +5,7 @@ interface IButtonProps {
   bgColorActive?: string;
   label: string;
   onClick?: () => void;
+  type?: "button" | "submit" | "reset" | undefined;
 }
 
 export const Button = ({
@@ -12,12 +13,14 @@ export const Button = ({
   label,
   bgColorActive,
   onClick,
+  type,
 }: IButtonProps) => {
   return (
     <StyledButton
       $bgColor={bgColor}
       $bgColorActive={bgColorActive}
       onClick={onClick}
+      type={type ?? "button"}
     >
       {label}
     </StyledButton>

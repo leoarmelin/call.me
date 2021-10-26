@@ -16,7 +16,7 @@ export const Avatar = ({ openAvatarModal }: IAvatarProps) => {
         src={require(`../../assets/${avatarSrc ?? "icon-1"}.svg`).default}
       />
 
-      <PencilWrapper onClick={openAvatarModal}>
+      <PencilWrapper onClick={openAvatarModal} type="button">
         <IconPencil src={pencilIcon} />
       </PencilWrapper>
     </Container>
