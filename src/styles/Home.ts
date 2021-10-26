@@ -5,9 +5,14 @@ export const Container = styled.main`
   flex-direction: column;
 
   align-items: center;
+  justify-content: center;
 
-  height: fit-content;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
+
+  padding: 0 1.5rem;
+
+  text-align: center;
 
   & > h1 {
     margin-bottom: 4rem;
@@ -15,6 +20,14 @@ export const Container = styled.main`
 
   & > input {
     margin: 2rem 0;
+  }
+
+  @media (max-width: 30em) {
+    & > input {
+      width: 80%;
+
+      margin: 2rem auto;
+    }
   }
 `;
 

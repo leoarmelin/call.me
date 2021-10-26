@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Input = styled.input`
+  max-width: 35.625rem;
   height: 4rem;
-  width: 35.625rem;
+  width: 100%;
 
   border: 4px solid #d9d9d9;
   border-radius: ${({ theme }) => theme.borderRadius};

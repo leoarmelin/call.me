@@ -7,6 +7,10 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    font-size: 100%;
+  }
+
   body {
     display: flex;
     flex-direction: column;
@@ -27,5 +31,17 @@ export const GlobalStyles = createGlobalStyle`
 
   button {
     cursor: pointer;
+  }
+
+  @media (max-width: 48em) {
+    html {
+      font-size: 75%;
+    }
+  }
+
+  @media (max-width: 30em) {
+    html {
+      font-size: 62.5%;
+    }
   }
 `;

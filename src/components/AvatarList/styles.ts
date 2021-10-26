@@ -16,10 +16,10 @@ export const Container = styled.div`
 
 export const ScrollList = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
   grid-gap: 0.75rem;
 
-  max-height: 450px;
+  max-height: 28.125rem;
   height: fit-content;
   width: 100%;
 

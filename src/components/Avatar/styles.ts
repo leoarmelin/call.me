@@ -10,6 +10,11 @@ export const Container = styled.div`
 export const IconImage = styled.img`
   height: 14.375rem;
   width: 14.375rem;
+
+  @media (max-width: 30em) {
+    height: 10rem;
+    width: 10rem;
+  }
 `;
 
 export const PencilWrapper = styled.button`
@@ -25,7 +30,7 @@ export const PencilWrapper = styled.button`
   height: 4rem;
   width: 4rem;
 
-  outline: 8px solid ${({ theme }) => theme.colors.background};
+  outline: 0.5rem solid ${({ theme }) => theme.colors.background};
   border: none;
   border-radius: 50%;
 
@@ -36,9 +41,19 @@ export const PencilWrapper = styled.button`
   &:active {
     background-color: ${({ theme }) => theme.colors.primaryPlus};
   }
+
+  @media (max-width: 30em) {
+    height: 3rem;
+    width: 3rem;
+  }
 `;
 
 export const IconPencil = styled.img`
   height: 2.5rem;
   width: 2.5rem;
+
+  @media (max-width: 30em) {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
 `;
