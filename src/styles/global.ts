@@ -29,6 +29,18 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Source Sans Pro';
   }
 
+  h1, h2, h3, h4, h5, h6, p, span, label {
+    &::-moz-selection {
+      background-color: ${({ theme }) => theme.colors.primary};
+      color: #fff;
+    }
+
+    &::selection {
+      background-color: ${({ theme }) => theme.colors.primary};
+      color: #fff;
+    }
+  }
+
   button {
     cursor: pointer;
   }
